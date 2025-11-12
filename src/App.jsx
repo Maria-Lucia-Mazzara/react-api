@@ -8,43 +8,35 @@ function App() {
     axios.get('https://lanciweb.github.io/demo/api/actors/')
       .then((res) => {
         setAttori(res.data);
-        console.log(res.data);
       })
       .catch((err) => console.error('Errore nella chiamata:', err));
   }
 
   useEffect(fetchAttori, []);
-  return (
-    <>
-      <div className="container">
-        <div className="row">
-          <div className="card" style={{ width: '18rem' }}>
-            {attori.map((attore) => (
-              <div key={attore.id} className="card-body">
-                <h2 className="card-title">
-                  {attore.name}
-                </h2>
-                <h4 className="card-title">
-                  {attore.birth_year}
-                </h4>
-                <h4 className="card-title">
-                  {attore.nationality}
-                </h4>
-                <h4 className="card-title">
-                  {attore.biography}
-                </h4>
-                <img src={attore.image} className="card-img-top" alt="..."></img>
-                <p className="card-text">
-                  {attore.known_for}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
 
-    </>
-  )
+  return (
+    <div className="container py-4">
+      <div className="row g-3">
+        {attori.map((attore) => (
+          <div key={attore.id} className="col-lg-3">
+            <div className="card">
+              <div className="h-100 text-center card_attore">
+                <div className='img_wrap'>
+                  <img src={attore.image} className="immagine_attore" />
+                </div>
+                <div className="card-body corpo_carta">
+                  <h5 className="card-title titolo_attore">{attore.name}</h5>
+                  <p className="card-text riga_dato"><strong>Anno:</strong> {attore.birth_year}</p>
+                  <p className="card-text riga_dato"><strong>Nazionalità:</strong> {attore.nationality}</p>
+                  <p className="card-text descrizione_breve">{attore.known_for}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;

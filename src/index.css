@@ -1,0 +1,36 @@
+.card_attore {
+    width: 100%;
+}
+
+.immagine_attore {
+    width: 100%;
+    object-fit: cover;
+}
+
+.corpo_carta {
+    padding: 16px;
+}
+
+.titolo_attore {
+    margin-bottom: 8px;
+}
+
+.riga_dato {
+    margin-bottom: 6px;
+}
+
+.descrizione_breve {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+.card {
+    height: 600px !important;
+
+}
+
+.img_wrap {
+    width: 100%;
+    height: 400px;
+    overflow-y: hidden;
+}
